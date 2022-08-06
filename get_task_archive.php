@@ -20,7 +20,7 @@ if ($query->num_rows == 0) {
 		?>
 			<tr>
 				<td><?= $no++ ?></td>
-				<td><?= $row['task'] ?></td>
+				<td><?= $row['nama'] ?></td>
 				<td><?= $row['is_finish'] == 1 ? 'finish' : '-' ?></td>
 				<td>
 					<?php if ($row['is_finish'] == 0): ?>

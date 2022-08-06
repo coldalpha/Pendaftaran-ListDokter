@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>PENDAFTARAN - LIST DOKTER</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-
 </head>
 <body>
 	<nav class="navbar navbar-light bg-light">
@@ -25,7 +24,7 @@
 		<div class="col-3">
 			<div class="form-group">
 				<label for="start">Dokter</label>
-				<select class="form-select form-control" name="dokter" id="dokter" >
+				<select class="form-select form-control" name="pilihdokter" id="pilihdokter" >
 						<option selected>Pilih Dokter</option>
 						<option value="MUHAMAD SYARIF">MUHAMAD SYARIF</option>
 						<option value="Dr. Vebriyanti Wahyu Handayani, Sp.PD">Dr. Vebriyanti Wahyu Handayani, Sp.PD</option>
@@ -36,8 +35,8 @@
 		</div>
 		<div class="col-3">
 			<div class="form-group">
-				<label for="finish">Tanggal</label>
-				<input type="date" name="finish" id="finish" class="form-control" required="required">
+				<label for="pilihtanggal">Tanggal</label>
+				<input type="date" name="pilihtanggal" id="pilihtanggal" class="form-control" required="required">
 			</div>
 		</div>
 	</div>
@@ -57,7 +56,7 @@
 						</div>
 					</div>
 					<div class="card-body">
-						<table class="table table-striped table-bordered" width="100%">
+						<table class="table table-striped table-bordered" width="100%" id="list-table">
 							<thead>
 								<tr>
 									<td>No</td>
@@ -91,7 +90,7 @@
 							<thead>
 								<tr>
 									<td>No</td>
-									<td>Task</td>
+									<td>Nama</td>
 									<td>Status</td>
 									<td>Action</td>
 								</tr>
@@ -105,6 +104,8 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Model Tambah List -->
 	<div class="modal fade bd-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
@@ -179,13 +180,41 @@
 			</div>
 		</div>
 	</div>
+
 	<script src="js/jquery-3.4.1.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">	
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 	<script>
 		$(document).ready(function(){
 			get_tasks_active()
 			get_tasks_archive()
-
+			// $( "#pilihdokter" ).val();
+			$('#pilihdokter').on('change', function() {
+				const pilihDokter1 = $(this).val();
+				$.ajax({
+					method: "POST",
+					url: "get_task.php",
+					data: {pilihDokter: pilihDokter1},
+					cache:false,
+					success: function(data){
+						$('tbody#task-active').html(data)
+					}
+				})
+			});
+			$('#pilihtanggal').on('change', function() {
+				const pilihTanggal1 = $(this).val();
+				// console.log(pilihTanggal);
+				$.ajax({
+					method: "POST",
+					url: "get_task.php",
+					data: {pilihTanggal: pilihTanggal1},
+					cache:false,
+					success: function(data){
+						$('tbody#task-active').html(data)
+					}
+				})
+			});
 			$('button[type=reset]').click(function(){
 				$('#modal').modal('toggle')
 			})
@@ -290,7 +319,8 @@
 
 			function reset_form(){
 				$('input').val('')
-				$('textarea').val('')
+				// Reset Pilihan
+				$('.form-select').prop('selectedIndex',0)
 			}
 		})
 	</script>

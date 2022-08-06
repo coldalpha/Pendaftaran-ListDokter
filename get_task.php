@@ -1,9 +1,22 @@
 <?php 
 
 require_once('connection.php');
-
-$sql = "SELECT * FROM tasks";
-
+// $pilihDokter = $_POST["pilihDokter"];
+if(isset($_POST['pilihDokter'])){
+	$pilihDokter = $_POST['pilihDokter'];
+	// echo $pilihDokter;
+	// $sql = mysqli_query($koneksi,"select * from tasks where dokter='$pilihDokter'");
+	$sql = "SELECT * FROM tasks where dokter='$pilihDokter'";
+}else if(isset($_POST['pilihTanggal'])){
+	$pilihTanggal = $_POST['pilihTanggal'];
+	// echo $pilihDokter;
+	// $sql = mysqli_query($koneksi,"select * from tasks where dokter='$pilihDokter'");
+	$sql = "SELECT * FROM tasks where tanggal='$pilihTanggal'";
+} else{
+	$sql = "SELECT * FROM tasks";
+}
+// $sql = "SELECT * FROM tasks";
+// $sql = "SELECT * FROM tasks where dokter='$pilihDokter'";
 $query = $conn->query($sql);
 
 $no = 1;
