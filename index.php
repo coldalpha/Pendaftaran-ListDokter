@@ -25,7 +25,7 @@
 			<div class="form-group">
 				<label for="start">Dokter</label>
 				<select class="form-select form-control" name="pilihdokter" id="pilihdokter" >
-						<option selected>Pilih Dokter</option>
+						<option value="Pilih Dokter" selected>Pilih Dokter</option>
 						<option value="MUHAMAD SYARIF">MUHAMAD SYARIF</option>
 						<option value="Dr. Vebriyanti Wahyu Handayani, Sp.PD">Dr. Vebriyanti Wahyu Handayani, Sp.PD</option>
 						<option value="MOCHAMMAD TAUFIK MAHAR">MOCHAMMAD TAUFIK MAHAR</option>
@@ -192,6 +192,7 @@
 			// $( "#pilihdokter" ).val();
 			$('#pilihdokter').on('change', function() {
 				const pilihDokter1 = $(this).val();
+				console.log(pilihDokter1);
 				$.ajax({
 					method: "POST",
 					url: "get_task.php",
