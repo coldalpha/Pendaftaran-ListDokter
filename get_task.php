@@ -1,8 +1,8 @@
 <?php 
 
 require_once('connection.php');
-$pilihDokter = isset($_POST['pilihDokter']);
-$pilihTanggal = isset($_POST['pilihTanggal']);
+// $pilihDokter = isset($_POST['pilihDokter']);
+// $pilihTanggal = isset($_POST['pilihTanggal']);
 $hariIni = date("Y/m/d");
 if(isset($_POST['pilihDokter'])){
 	$pilihDokter = $_POST['pilihDokter'];
