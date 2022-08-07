@@ -28,8 +28,8 @@
 						<option value="Pilih Dokter" selected>Pilih Dokter</option>
 						<option value="MUHAMAD SYARIF">MUHAMAD SYARIF</option>
 						<option value="Dr. Vebriyanti Wahyu Handayani, Sp.PD">Dr. Vebriyanti Wahyu Handayani, Sp.PD</option>
-						<option value="MOCHAMMAD TAUFIK MAHAR">MOCHAMMAD TAUFIK MAHAR</option>
-						<option value="dr. Dera Tresna U, Sp. M">dr. Dera Tresna U, Sp. M</option>
+						<!-- <option value="MOCHAMMAD TAUFIK MAHAR">MOCHAMMAD TAUFIK MAHAR</option>
+						<option value="dr. Dera Tresna U, Sp. M">dr. Dera Tresna U, Sp. M</option> -->
 				</select>
 			</div>
 		</div>
@@ -151,8 +151,8 @@
 										<option selected>Pilih Dokter</option>
 										<option value="MUHAMAD SYARIF">MUHAMAD SYARIF</option>
 										<option value="Dr. Vebriyanti Wahyu Handayani, Sp.PD">Dr. Vebriyanti Wahyu Handayani, Sp.PD</option>
-										<option value="MOCHAMMAD TAUFIK MAHAR">MOCHAMMAD TAUFIK MAHAR</option>
-										<option value="dr. Dera Tresna U, Sp. M">dr. Dera Tresna U, Sp. M</option>
+										<!-- <option value="MOCHAMMAD TAUFIK MAHAR">MOCHAMMAD TAUFIK MAHAR</option>
+										<option value="dr. Dera Tresna U, Sp. M">dr. Dera Tresna U, Sp. M</option> -->
 									</select>
 								</div>
 							</div>
@@ -209,7 +209,8 @@
 			$('#pilihtanggal').on('change', function() {
 				const pilihTanggal1 = $(this).val();
 				const pilihDokter1 = document.querySelector("#pilihdokter").value;
-				// console.log(pilihTanggal);
+				console.log(pilihTanggal1);
+				console.log(pilihDokter1);
 				$.ajax({
 					method: "POST",
 					url: "get_task.php",
