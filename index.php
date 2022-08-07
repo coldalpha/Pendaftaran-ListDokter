@@ -191,12 +191,15 @@
 			get_tasks_archive()
 			// $( "#pilihdokter" ).val();
 			$('#pilihdokter').on('change', function() {
+				// const category_nama = document.querySelector("#kategoriFilter").value;
 				const pilihDokter1 = $(this).val();
+				const pilihTanggal1 = document.querySelector("#pilihtanggal").value;
+				console.log(pilihTanggal1);
 				console.log(pilihDokter1);
 				$.ajax({
 					method: "POST",
 					url: "get_task.php",
-					data: {pilihDokter: pilihDokter1},
+					data: {pilihDokter: pilihDokter1, pilihTanggal:pilihTanggal1},
 					cache:false,
 					success: function(data){
 						$('tbody#task-active').html(data)
@@ -205,11 +208,12 @@
 			});
 			$('#pilihtanggal').on('change', function() {
 				const pilihTanggal1 = $(this).val();
+				const pilihDokter1 = document.querySelector("#pilihdokter").value;
 				// console.log(pilihTanggal);
 				$.ajax({
 					method: "POST",
 					url: "get_task.php",
-					data: {pilihTanggal: pilihTanggal1},
+					data: {pilihDokter: pilihDokter1, pilihTanggal:pilihTanggal1},
 					cache:false,
 					success: function(data){
 						$('tbody#task-active').html(data)

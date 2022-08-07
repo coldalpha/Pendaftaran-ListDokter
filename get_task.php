@@ -3,7 +3,7 @@
 require_once('connection.php');
 // $pilihDokter = isset($_POST['pilihDokter']);
 // $pilihTanggal = isset($_POST['pilihTanggal']);
-$hariIni = date("Y/m/d");
+// $hariIni = date("Y/m/d");
 if(isset($_POST['pilihDokter'])){
 	$pilihDokter = $_POST['pilihDokter'];
 	// echo $pilihDokter;
@@ -15,7 +15,7 @@ if(isset($_POST['pilihDokter'])){
 	// $sql = mysqli_query($koneksi,"select * from tasks where dokter='$pilihDokter'");
 	$sql = "SELECT * FROM tasks where tanggal='$pilihTanggal'";
 } else{
-	$sql = "SELECT * FROM tasks where tanggal = '$hariIni'";
+	$sql = "SELECT * FROM tasks";
 }
 // $sql = "SELECT * FROM tasks";
 // $sql = "SELECT * FROM tasks where dokter='$pilihDokter'";
