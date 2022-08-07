@@ -3,7 +3,7 @@
 require_once('connection.php');
 // $pilihDokter = isset($_POST['pilihDokter']);
 // $pilihTanggal = isset($_POST['pilihTanggal']);
-// $hariIni = date("Y/m/d");
+$hariIni = date("Y/m/d");
 if(isset($_POST['pilihDokter'])){
 	$pilihDokter = $_POST['pilihDokter'];
 	if(isset($_POST['pilihTanggal'])){
@@ -74,19 +74,19 @@ if(isset($_POST['pilihDokter'])){
 					<td><?= $row['rm'] ?></td>
 					<td><?= $row['nama'] ?></td>
 					<td><?= $row['keterangan'] ?></td>
-					<td>
+					<!-- <td>
 						<?php if ($row['is_finish'] == 0): ?>
 							<button type="button" data-url="mark_as_finish.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-success btn-finish">Finish</button>
 						<?php endif ?>
 						<button type="button" data-url="archive_task.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-warning text-white btn-archive">Archive</button>
-					</td>
+					</td> -->
 				</tr>
 			<?php
 			}
 		}
 	}
 } else{
-	$sql = "SELECT * FROM tasks";
+	$sql = "SELECT * FROM tasks where tanggal = '$hariIni'";
 	$query = $conn->query($sql);
 	$no = 1;
 
@@ -108,12 +108,12 @@ if(isset($_POST['pilihDokter'])){
 					<td><?= $row['rm'] ?></td>
 					<td><?= $row['nama'] ?></td>
 					<td><?= $row['keterangan'] ?></td>
-					<td>
+					<!-- <td>
 						<?php if ($row['is_finish'] == 0): ?>
 							<button type="button" data-url="mark_as_finish.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-success btn-finish">Finish</button>
 						<?php endif ?>
 						<button type="button" data-url="archive_task.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-warning text-white btn-archive">Archive</button>
-					</td>
+					</td> -->
 				</tr>
 			<?php
 			}

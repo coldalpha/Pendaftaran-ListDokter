@@ -66,7 +66,7 @@
 									<td>RM</td>
 									<td>Nama</td>
 									<td>Keterangan</td>
-									<td>Action</td>
+									<!-- <td>Action</td> -->
 								</tr>
 							</thead>
 							<tbody id="task-active">
@@ -77,7 +77,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row mb-5">
+		<!-- <div class="row mb-5">
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header clearfix">
@@ -92,7 +92,7 @@
 									<td>No</td>
 									<td>Nama</td>
 									<td>Status</td>
-									<td>Action</td>
+									<!-- <td>Action</td> -->
 								</tr>
 							</thead>
 							<tbody id="task-archive">
@@ -102,7 +102,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 	<!-- Model Tambah List -->
